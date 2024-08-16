@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 220px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .result-container {
+            border: 2px solid #007bff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .result-label {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            font-size: 28px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Real Estate Price Prediction Result</h1>
+        <div class="result-container">
+            <p class="result-label">The Predicted Price is:</p>
+            <p class="result-value">{{ prediction }}</p>
+        </div>
+    </div>
+</body>
+</html>

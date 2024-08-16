@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group small {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 2px;
+            font-size: 80%;
+            color: #6c757d;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Additional styling */
+        .tooltip-inner {
+            background-color: #007bff;
+        }
+
+        .is-valid {
+            border-color: #28a745;
+            padding-right: calc(1.5em + .75rem);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="#28a745" d="M2.5 6L1 4.5 2.5 3l1.5 1.5L7 1.5 8.5 3z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right calc(.375em + .1875rem) center;
+            background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+        }
+
+        .is-invalid {
+            border-color: #dc3545;
+            padding-right: calc(1.5em + .75rem);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="#dc3545" d="M6.719 6.719c.207.207.481.316.758.281a1.01 1.01 0 0 0 .531-.282 1.011 1.011 0 0 0 .282-.532c.035-.277-.074-.55-.281-.758L4.061 1.22c-.207-.207-.481-.316-.758-.281a1.01 1.01 0 0 0-.531.282 1.011 1.011 0 0 0-.282.532c-.035.277.074.55.281.758l3.437 3.437zM4 7C1.795 7 0 5.205 0 3S1.795 0 4 0s4 1.795 4 3-1.795 3-4 3z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right calc(.375em + .1875rem) center;
+            background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Real Estate Price Prediction</h1>
+        <form method="post" action="/predict">
+            <div class="form-group">
+                <label for="area">Area:</label>
+                <input type="text" class="form-control" name="area" required>
+                <small>Enter the area in square units</small>
+            </div>
+            <div class="form-group">
+                <label for="rooms">Number of Rooms:</label>
+                <input type="text" class="form-control" name="rooms" required>
+                <small>Enter the number of rooms</small>
+            </div>
+            <div class="form-group">
+                <label for="lon">Longitude:</label>
+                <input type="text" class="form-control" name="lon" required>
+                <small>Enter the longitude of the location</small>
+            </div>
+            <div class="form-group">
+                <label for="lat">Latitude:</label>
+                <input type="text" class="form-control" name="lat" required>
+                <small>Enter the latitude of the location</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+    </div>
+    <!-- Add your JavaScript libraries if needed -->
+</body>
+</html>
