@@ -5,8 +5,8 @@ from sklearn.model_selection import train_test_split
 
 app = Flask(__name__)
 
-# Load the dataset (ensure the path is correct for deployment)
-dataset = pd.read_csv('HousingPrices-Amsterdam-August-2021.csv')
+# Load the dataset
+dataset = pd.read_csv('C:\\Users\\Nihal\\Desktop\\land\\HousingPrices-Amsterdam-August-2021.csv')
 
 # Drop non-numeric columns or those not suitable for direct use in the model
 columns_to_drop = ['Unnamed: 0', 'Address']
@@ -18,6 +18,8 @@ dataset = pd.get_dummies(dataset, columns=['Zip'], drop_first=True)
 # Handle missing values in the target variable
 dataset['Price'] = dataset['Price'].fillna(dataset['Price'].mean())
 
+
+
 # Identify important features
 X = dataset.drop('Price', axis=1)
 y = dataset['Price']
@@ -27,6 +29,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # Choose a regression model (Random Forest Regressor in this example)
 model = RandomForestRegressor()
+
+# Handle missing values in the features (if any)
+X_train = X_train.dropna()
+
+# Handle missing values in the target variable
+y_train = y_train.dropna()
 
 # Fit the model
 model.fit(X_train, y_train)
@@ -44,7 +52,7 @@ def predict():
         lon = float(request.form['lon'])
         lat = float(request.form['lat'])
 
-        # Make sure the input_data length matches the feature columns
+        # Make a prediction using the trained model
         input_data = [area, rooms, lon, lat] + [0] * (X_train.shape[1] - 4)
 
         # Reshape the input data to be a 2D array
